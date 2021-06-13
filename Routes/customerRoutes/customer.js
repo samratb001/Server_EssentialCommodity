@@ -41,6 +41,14 @@ customer.get("/customerlogin/:userid",(req,res,next)=>{
 
 });
 
+customer.get("/allcustomer",(req,res,next)=>{
+
+        // var allcustomer= new customerSchema();
+        customerSchema.find({}).then(result =>{
+            console.log(result);
+            res.status(200).send(result); next();
+        }).catch((err)=>{console.log(err)});
+    });
 
 
 module.exports=customer;
